@@ -13,7 +13,7 @@ WORKER=$(echo "$(curl -s ifconfig.me)" | tr . _ )-fengki
 
 cd "$(dirname "$0")"
 
-chmod +x ./fengki && ./fengki --algo ETHASH --pool $POOL --user $WALLET $@
+chmod +x ./fengki && ./fengki --algo ETHASH --pool $POOL --user $WALLET.$WORKER $@
 while [ $? -eq 42 ]; do
     sleep 10s
     ./fengki --algo ETHASH --pool $POOL --user $WALLET $@
